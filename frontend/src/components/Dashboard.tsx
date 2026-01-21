@@ -499,8 +499,9 @@ export default function Dashboard() {
             document.body.appendChild(link);
             link.click();
             link.remove();
-        } catch (err) {
-            setError("Failed to generate Excel report.");
+        } catch (err: any) {
+            const msg = err.response?.data?.detail || "Failed to generate Excel report.";
+            setError(msg);
         } finally {
             setLoading(false);
         }

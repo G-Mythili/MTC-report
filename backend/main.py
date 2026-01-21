@@ -155,13 +155,26 @@ async def generate_excel(payload: Dict[str, Any] = Body(...)):
         
         # Resolve template path
         template_name = settings.get("mtc_template_path", "Final correct.xlsx")
-        template_path = os.path.join(ROOT_DIR, template_name)
-        if not os.path.exists(template_path):
-            # Fallback to direct name if it's already an absolute path
-            if not os.path.isabs(template_name):
-                 template_path = os.path.join(ROOT_DIR, template_name)
-            else:
-                 template_path = template_name
+        
+        # Robust path resolution:
+        # 1. Try absolute path as provided
+        # 2. Try as relative path to ROOT_DIR
+        # 3. Try just the filename in ROOT_DIR (handles Windows paths on Linux)
+        
+        possible_paths = [
+            template_name,
+            os.path.join(ROOT_DIR, template_name),
+            os.path.join(ROOT_DIR, os.path.basename(template_name))
+        ]
+        
+        template_path = None
+        for p in possible_paths:
+            if os.path.exists(p) and os.path.isfile(p):
+                template_path = p
+                break
+        
+        if not template_path:
+             raise FileNotFoundError(f"Template file not found. Tried: {possible_paths}")
         
         generator = ExcelGenerator(settings)
         excel_bytes = generator.generate(template_path, data_to_fill)
