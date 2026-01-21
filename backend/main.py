@@ -159,17 +159,19 @@ async def generate_excel(payload: Dict[str, Any] = Body(...)):
         # Robust path resolution:
         # 1. Try absolute path as provided
         # 2. Try as relative path to ROOT_DIR
-        # 3. Try just the filename in ROOT_DIR (handles Windows paths on Linux)
+        # 3. Try just the filename (handling both / and \ slashes for cloud/local compatibility)
+        
+        filename = template_name.replace('\\', '/').split('/')[-1]
         
         possible_paths = [
             template_name,
             os.path.join(ROOT_DIR, template_name),
-            os.path.join(ROOT_DIR, os.path.basename(template_name))
+            os.path.join(ROOT_DIR, filename)
         ]
         
         template_path = None
         for p in possible_paths:
-            if os.path.exists(p) and os.path.isfile(p):
+            if p and os.path.exists(p) and os.path.isfile(p):
                 template_path = p
                 break
         
