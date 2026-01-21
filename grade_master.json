@@ -1,0 +1,85 @@
+{
+    "SCRM 670/26": {
+        "chemistry": [
+            {
+                "Element": "Carbon",
+                "Spec": "3.25 - 4.10%"
+            },
+            {
+                "Element": "Silicon",
+                "Spec": "1.80 - 3.00%"
+            },
+            {
+                "Element": "Manganese",
+                "Spec": "0.1 - 1.00%"
+            },
+            {
+                "Element": "Phosphorus",
+                "Spec": "0.050% Max"
+            },
+            {
+                "Element": "Sulphur",
+                "Spec": "0.035% Max"
+            },
+            {
+                "Element": "Copper",
+                "Spec": "-"
+            },
+            {
+                "Element": "Magnesium",
+                "Spec": "0.035 - 0.060%"
+            }
+        ],
+        "mechanical": []
+    },
+    "FG260": {
+        "chemistry": [
+            {
+                "Element": " Carbon ",
+                "Spec": "3.10-3.50%"
+            },
+            {
+                "Element": " Silicon ",
+                "Spec": "1.90-2.30%"
+            },
+            {
+                "Element": " Manganese ",
+                "Spec": "0.7-0.9%"
+            },
+            {
+                "Element": " Phosphorus",
+                "Spec": "0.20% Max"
+            },
+            {
+                "Element": "Sulphur ",
+                "Spec": "0.15% Max"
+            },
+            {
+                "Element": "Chromium",
+                "Spec": "0.3% Max"
+            },
+            {
+                "Element": "Copper",
+                "Spec": "0.3-00.70%"
+            },
+            {
+                "Element": "Nickle",
+                "Spec": "0.00%"
+            },
+            {
+                "Element": "Tin",
+                "Spec": "0.00%"
+            },
+            {
+                "Element": "Moly",
+                "Spec": "0.00%"
+            }
+        ],
+        "mechanical": [
+            {
+                "Parameter": "New Parameter",
+                "Spec": "0-0"
+            }
+        ]
+    }
+}

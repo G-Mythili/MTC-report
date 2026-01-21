@@ -1,0 +1,351 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <title>MTC Report</title>
+            <style>
+                @page { size: A4; margin: 10mm; }
+                
+                /* Dynamic Styles from Settings */
+
+                body { 
+                    font-family: "Calibri", "Arial", sans-serif; 
+                    background-color: #f0f0f0; 
+                    margin: 0; 
+                    padding: 20px; 
+                }
+                .page {
+                    width: 210mm;
+                    min-height: 297mm;
+                    padding: 10mm;
+                    margin: 0 auto;
+                    background: white;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+                table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+                td, th { border: 1px solid black; padding: 4px; vertical-align: middle; }
+                
+                .logo-cell { 
+                    background-color: #000080; 
+                    color: white; 
+                    text-align: center; 
+                    width: 15%; 
+                    vertical-align: middle;
+                    padding: 5px;
+                }
+                
+                /* Hexagon Logo Construction */
+                .logo-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                }
+                
+                .tvs-hex {
+                    width: 80px;
+                    height: 55px;
+                    background-color: white;
+                    position: relative;
+                    /* Create Hexagon shape */
+                    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .tvs-oval {
+                    width: 74px;
+                    height: 48px;
+                    background-color: #000080;
+                    border-radius: 50%; /* Oval */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .tvs-text {
+                    color: white;
+                    font-weight: bold;
+                    font-family: "Arial Narrow", Arial, sans-serif;
+                    font-size: 24pt;
+                    letter-spacing: 1px;
+                    /* Slight skew/italic if needed, but plain looks close */
+                }
+                
+                .company-header { text-align: center; color: #000000; }
+                .company-name { font-weight: bold; font-size: 14pt; color: #0070c0; }
+                .lab-report-title { font-weight: bold; margin-top: 5px; font-size: 12pt; }
+                
+                .info-cell { width: 35%; font-size: 9pt; }
+                .info-line { margin-bottom: 2px; }
+                
+                .section-header { 
+                    background-color: #d9e1f2; 
+                    font-weight: bold; 
+                    text-align: center; 
+                    padding: 4px; 
+                }
+                
+                .obs-header { background-color: white; }
+                .chem-header { background-color: #f2f2f2; font-weight: bold; text-align: center; }
+                
+                .footer-table td { height: 50px; vertical-align: bottom; text-align: center; }
+                .footer-label { background-color: #f2f2f2; height: 20px; vertical-align: middle; font-weight: bold; }
+                
+                @media print {
+                    body { background: none; padding: 0; margin: 0; }
+                    .page { 
+                        box-shadow: none; 
+                        margin: 0; 
+                        border: none; 
+                        width: 100%; 
+                        height: auto; 
+                        padding: 0; 
+                    }
+                    .tvs-hex { -webkit-print-color-adjust: exact; }
+                    .tvs-oval { -webkit-print-color-adjust: exact; }
+                    .logo-cell { -webkit-print-color-adjust: exact; }
+                    .no-print { display: none; }
+                    html, body { height: 100%; }
+                }
+            </style>
+            </head>
+            <body>
+            
+            <div class="page">
+                <!-- Header -->
+                <table>
+                    <tr>
+                        <td class="logo-cell">
+                             <div class="logo-container">
+                                 <div class="tvs-hex">
+                                     <div class="tvs-oval">
+                                         <span class="tvs-text">TVS</span>
+                                     </div>
+                                 </div>
+                             </div>
+                        </td>
+                        <td class="company-header">
+                            <div class="company-name">AUTOLEC DIVISION-FOUNDRY</div>
+                            <div>Gummidipoondi-601201</div>
+                            <div>E-Mail: mythili.g@sfl.co.in</div>
+                            <div class="lab-report-title">LABORATORY REPORT</div>
+                        </td>
+                        <td class="info-cell">
+                            <div class="info-line"><b>Customer Part No:</b> A 400 351 02 11</div>
+                            <div class="info-line"><b>Invoice No :</b> </div>
+                            <div class="info-line"><b>Despatch Quantity:</b> no's</div>
+                            <div class="info-line"><b>Dispatch Date :</b> </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Reference & Part -->
+                <div style="border: 1px solid black; border-top: none; padding: 4px; font-weight: bold; font-size: 10pt;">
+                    REFERENCE - Ductile iron J434C GRADE 4512
+                </div>
+                <div style="border: 1px solid black; border-top: none; padding: 4px; font-weight: bold; font-size: 10pt; margin-bottom: 10px;">
+                    Part Name: TB Bearing Cage ;   Part No:RBCM5370M   ;   Date code:02A26
+                </div>
+                
+                <!-- Main Data Table -->
+                <table>
+                    <tr>
+                        <th style="width: 30%;">PARAMETER</th>
+                        <th style="width: 30%;">SPECIFICATION</th>
+                        <th colspan="2">OBSERVATIONS</th>
+                    </tr>
+                    
+                    <!-- Chemical Section -->
+                    <tr>
+                        <td colspan="4" class="section-header">Specification <br> 1. Chemical composition</td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2" style="border: none;"></td> <!-- Spacer/Layout check -->
+                        <td colspan="2" style="text-align: center; font-weight: bold; border-left: 1px solid black; border-bottom: 0;">Heat No:</td>
+                    </tr>
+                    
+                    <tr class="chem-header">
+                        <td>Element</td>
+                        <td>Percentage</td>
+                        <td>334A26-DISA</td>
+                        <td>334A26-DISA</td>
+                    </tr>
+                    
+                    
+                <tr>
+                    <td>Carbon</td>
+                    <td style='text-align: center;'>3.20 ~ 4.10%</td>
+                    <td style='text-align: center; font-weight: bold;'>3.53%</td>
+                    <td style='text-align: center; font-weight: bold;'>3.55%</td>
+                </tr>
+                
+                <tr>
+                    <td>Silicon</td>
+                    <td style='text-align: center;'>1.80 ~ 3.00%</td>
+                    <td style='text-align: center; font-weight: bold;'>2.55%</td>
+                    <td style='text-align: center; font-weight: bold;'>2.52%</td>
+                </tr>
+                
+                <tr>
+                    <td>Manganese</td>
+                    <td style='text-align: center;'>0.1 ~ 1.00%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.26%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.27%</td>
+                </tr>
+                
+                <tr>
+                    <td>Phosphorus</td>
+                    <td style='text-align: center;'>0.050% Max</td>
+                    <td style='text-align: center; font-weight: bold;'>0.04%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.04%</td>
+                </tr>
+                
+                <tr>
+                    <td>Sulphur</td>
+                    <td style='text-align: center;'>0.035% Max</td>
+                    <td style='text-align: center; font-weight: bold;'>0.01%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.01%</td>
+                </tr>
+                
+                <tr>
+                    <td>Copper</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'>0.10%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.10%</td>
+                </tr>
+                
+                <tr>
+                    <td>Nickel</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'>0.01%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.01%</td>
+                </tr>
+                
+                <tr>
+                    <td>Chromium</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'>0.02%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.02%</td>
+                </tr>
+                
+                <tr>
+                    <td>Moly</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'>0.00%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.00%</td>
+                </tr>
+                
+                <tr>
+                    <td>Magnesium</td>
+                    <td style='text-align: center;'>0.025 ~ 0.060%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.04%</td>
+                    <td style='text-align: center; font-weight: bold;'>0.04%</td>
+                </tr>
+                
+                <tr>
+                    <td>CE</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'>4.42%</td>
+                    <td style='text-align: center; font-weight: bold;'>4.43%</td>
+                </tr>
+                
+                <tr>
+                    <td>Tin</td>
+                    <td style='text-align: center;'>-</td>
+                    <td style='text-align: center; font-weight: bold;'></td>
+                    <td style='text-align: center; font-weight: bold;'></td>
+                </tr>
+                
+                    
+                    <!-- Mechanical Section -->
+                    <tr>
+                        <td colspan="4" class="section-header">2. Mechanical Properties</td>
+                    </tr>
+                    
+                    
+                <tr>
+                    <td style='font-weight: bold;'>3.1 Hardness</td>
+                    <td style='text-align: center;'>156-217 HB</td>
+                    <td style='text-align: center;' colspan='2'>197/197/197/207/207 BHN</td> 
+                </tr>
+                
+                <tr>
+                    <td style='font-weight: bold;'>3.2 Tensile Strength</td>
+                    <td style='text-align: center;'>Min 450 Mpa</td>
+                    <td style='text-align: center;' colspan='2'>515.28 Mpa</td> 
+                </tr>
+                
+                <tr>
+                    <td style='font-weight: bold;'>3.3 Yield Strength</td>
+                    <td style='text-align: center;'>Min 295 Mpa</td>
+                    <td style='text-align: center;' colspan='2'>326.02 Mpa</td> 
+                </tr>
+                
+                <tr>
+                    <td style='font-weight: bold;'>3.4 % Of Elongation</td>
+                    <td style='text-align: center;'>Min 12 %</td>
+                    <td style='text-align: center;' colspan='2'>14.00%</td> 
+                </tr>
+                
+                    
+                    <!-- Microstructure Section -->
+                     <tr>
+                        <td colspan="4" class="section-header">3. Microstructure</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 10px; text-align: center;">Thar Graphite from shall be 80 percent Types I & II as determined in accordance with ASTM A 247</td>
+                        <td colspan="2" style="padding: 10px; text-align: center;">Graphite form Type V and VI,<br>Nodularity: 90%<br>Nodule count: 290/mm²</td>
+                    </tr>
+                    
+                     <!-- Matrix Section -->
+                     <tr>
+                        <td colspan="4" class="section-header">3.1 Matrix</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 20px; text-align: center;">Ferrite - Pearlite</td>
+                        <td colspan="2" style="padding: 20px; text-align: center;">Predominantly Ferrite matrix with Pearlite</td>
+                    </tr>
+                    
+                     <!-- Images -->
+                    <tr>
+                         <td colspan="2" style="height: 120px; text-align: center; vertical-align: bottom; font-weight: bold;">
+                            <!-- Placeholder for image -->
+                            <div style="background: #eee; height: 100px; width: 100px; margin: auto;">Image</div>
+                            Polished Image at 100X
+                         </td>
+                         <td colspan="2" style="height: 120px; text-align: center; vertical-align: bottom; font-weight: bold;">
+                             <div style="background: #eee; height: 100px; width: 100px; margin: auto;">Image</div>
+                             Etched Image at 100X
+                         </td>
+                    </tr>
+
+                </table>
+                
+                <div style="padding: 5px; border: 1px solid black; border-top: none; font-weight: bold; font-size: 10pt;">
+                    Conclusion: The above material is satisfactory to Ductile iron J434C GRADE 4512.
+                </div>
+                
+                <div style="margin-top: 10px;">
+                     <table class="footer-table">
+                        <tr>
+                            <td rowspan="2" style="width: 25%; text-align: left; vertical-align: middle; padding-left: 10px;">SFL/FD/9.15</td>
+                            <td class="footer-label">REPORTED BY</td>
+                            <td class="footer-label">APPROVED BY</td>
+                        </tr>
+                        <tr>
+                            <td style="height: 60px;">G.Mythili</td>
+                            <td style="height: 60px;">T.Thirugnanam</td>
+                        </tr>
+                     </table>
+                 </div>
+                 
+            </div>
+            
+            </body>
+            </html>
+            <script>window.print()</script>

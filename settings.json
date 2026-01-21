@@ -1,0 +1,12 @@
+{
+    "chem_title": "1. Chemical composition",
+    "mech_title": "2. Mechanical Properties",
+    "micro_title": "3. Microstructure",
+    "matrix_title": "3.1 Matrix",
+    "header_align": "center",
+    "mtc_template_path": "E:\\2026 Report Famat\\Final correct.xlsx",
+    "header_fill_color": "#d9e1f2",
+    "border_style": "thin",
+    "font_family": "Calibri",
+    "font_size": 10
+}

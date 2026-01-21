@@ -1,0 +1,9 @@
+pandas
+openpyxl
+xlrd
+pyxlsb
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+aiofiles
