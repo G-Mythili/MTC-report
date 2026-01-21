@@ -45,7 +45,19 @@ interface MTCData {
     grade: string;
 }
 
-const API_BASE = (import.meta.env.VITE_API_URL as string) || "http://localhost:8000/api";
+const getApiBase = () => {
+    if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+        if (hostname.endsWith('.app.github.dev')) {
+            // Auto-detect Codespace backend URL by replacing port 5173 with 8000
+            const backendHostname = hostname.replace('-5173', '-8000');
+            return `https://${backendHostname}/api`;
+        }
+    }
+    return (import.meta.env.VITE_API_URL as string) || "http://localhost:8000/api";
+};
+
+const API_BASE = getApiBase();
 
 const ELEMENT_ALIASES: Record<string, string[]> = {
     "Carbon": ["C [%]", "C%", "CARBON"],
